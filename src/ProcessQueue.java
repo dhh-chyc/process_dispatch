@@ -11,7 +11,7 @@ public class ProcessQueue{
     }
 
     public int getQueueTime() {
-        return (int)Math.pow(2, queueId);
+        return (int)Math.pow(this.queueTime, queueId);
     }
     public void setQueueTime(int queueTime) {
         this.queueTime = queueTime;
@@ -37,6 +37,15 @@ public class ProcessQueue{
         return p;
     }
 
+    public boolean hasProcess(Process process){
+        for(Process p : this.processList){
+            if(p.getProcessId() == process.getProcessId()){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void insert(Process process){
         this.processList.add(0, process);
     }
@@ -51,5 +60,12 @@ public class ProcessQueue{
         }else{
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "ProcessQueue{" +
+                "processList=" + processList.toString() +
+                '}';
     }
 }

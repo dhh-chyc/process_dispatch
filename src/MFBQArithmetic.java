@@ -76,7 +76,7 @@ public class MFBQArithmetic {
             if(process != null){
                 this.queueMap.get(0).add(process);//如果有新进程来临，插入第0号队列，不抢占
             }
-            Process executeProcess;//代表将要执行的队列
+            Process executeProcess;//代表将要执行的进程
             if(continueProcess != null){
                 executeProcess = continueProcess;//上一秒执行的进程的时间片还未结束，将其设置为将要执行的进程
             }else{
@@ -118,7 +118,7 @@ public class MFBQArithmetic {
         Process[] pro = this.processes;
         Process process = new Process();//用于作为交换媒介
         for(int i = 0; i < pro.length; i++){
-            for(int j = i; j < pro.length - 1; j++){
+            for(int j = 0; j < pro.length - 1 - i; j++){
                 if(pro[j].getComeTime() > pro[j+1].getComeTime()){
                     process = pro[j];
                     pro[j] = pro[j+1];

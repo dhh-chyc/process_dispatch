@@ -95,4 +95,20 @@ public class Process{
             return false;
         }
     }
+
+    public float getProcessPriority(int current){
+        int wait = current - this.getComeTime();
+        if(wait > 0){
+            if(this.getDoneTime() == this.getServeTime()){
+                return -2f;//代表进程已结束
+            }else{
+                float priority = (wait + this.getServeTime())/((float)this.getServeTime());
+                return priority;//代表进程正常服务，同时表示这个进程的响应比
+            }
+        }else if(wait == 0){
+            return 0f;//代表当前时间进程达到
+        }else{
+            return -1f;//代表当前时间进程未到达
+        }
+    }
 }
