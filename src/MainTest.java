@@ -46,15 +46,6 @@ public class MainTest {
 //        HRRNArithmetic hrrnArithmetic = new HRRNArithmetic(processes4);
 //        hrrnArithmetic.start();
 
-//        System.out.println("---------------抢占式轮转调度算法---------------");
-//        Process[] processes = new Process[]{new Process(1,0,3),
-//                new Process(2,2,6),
-//                new Process(3,4,4),
-//                new Process(4,6,5),
-//                new Process(5,8,2)};
-//        RRArithmetic rrArithmetic = new RRArithmetic(processes, 1);
-//        rrArithmetic.startFighting();
-
         System.out.println("---------------轮转调度算法---------------");
         Process[] processes1 = new Process[]{new Process(1,0,4),
                 new Process(2,1,3),
